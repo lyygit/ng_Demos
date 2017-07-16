@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<!-- ng的入口，使用myApp这个模块 -->
+
+<head>
+    <meta charset="UTF-8">
+    <title>登录信息数据双向绑定</title>
+</head>
+
+<body>
+    
+	<table ng-controller="worldController">	
+	<!-- 使用worldController这个控制器 -->
+		<tr>
+			<td>用户名</td>
+			<td><input type="text" ng-model="user.username"></td><!-- 实现数据双向绑定 -->
+		</tr>
+		<tr>
+			<td>密码</td>
+			<td><input type="password" ng-model="user.password"></td><!-- 实现数据双向绑定 -->
+		</tr>
+		<tr>
+			<td></td>
+			<td><button ng-click="login()">登陆</button></td><!-- 绑定事件 -->
+		</tr>
+	</table>
+
+    <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <script>
+    var app = angular.module("myApp", []);
+    // 注册模块，名称为myApp，第二个参数为这个模块要依赖的模块，不能省略，没有为空
+
+    app.controller("worldController", ["$scope", function($scope) {
+    	// 给myApp模块添加名为worldController的控制器，并添加控制器执行时自动执行的函数
+    	// 函数的标准写法为数组方式，数组最后一个参数写函数，前面写要传的参数，参数可以有多个
+    	
+        $scope.user = {
+            username: "",
+            password: ""
+        };
+        // 数据
+
+        $scope.login = function() {
+            console.log($scope.user);
+        }
+        // 方法
+
+    }]);
+    </script>
+</body>
+
+</html>
