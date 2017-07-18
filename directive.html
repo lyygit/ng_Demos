@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>directive</title>
+    <link rel="stylesheet" href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css">
+</head>
+
+<body ng-app="demoApp">
+    <btn-primary></btn-primary>
+    <btn-app>你好</btn-app>
+    <!-- <button type="button" class="btn btn-danger">Action</button> -->
+    <!-- 引入angular -->
+    <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <script>
+    var demoApp = angular.module("demoApp", []);
+    demoApp.directive('btnPrimary', [function() {
+      return {
+      	replace:true,
+      	// 替换指令在HTML中绑定的元素
+      	transclude:true,
+      	// 指令对象的transclude必须设置为true才可以在模版中使用ng-transclude
+        template:'<input type="button" value="itcast" class="btn btn-primary"/>'
+      };
+    }]);
+    demoApp.directive('btnApp', [function() {
+      return {
+      	replace:true,
+      	// 替换指令在HTML中绑定的元素
+      	transclude:true,
+      	// 指令对象的transclude必须设置为true才可以在模版中使用ng-transclude
+        template:'<button class="btn btn-primary" ng-transclude/></button>'
+      };
+    }]);
+
+    // demoApp.controller("styleController", ["$scope", function($scope) {
+
+    // }]);
+    </script>
+</body>
+
+</html>
