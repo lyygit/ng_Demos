@@ -1,0 +1,19 @@
+{
+  "name": "d",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lyygit/ng_Demos.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lyygit/ng_Demos/issues"
+  },
+  "homepage": "https://github.com/lyygit/ng_Demos#readme"
+}

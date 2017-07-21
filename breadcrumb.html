@@ -9,7 +9,7 @@
 
 <body ng-app="demoApp" ng-controller="styleController">
     <!-- 面包屑导航 -->
-    <breadcrumb data="{{data1}}"></breadcrumb>
+    <breadcrumb shuxing="{{data1}}"></breadcrumb>
     <!-- 引入angular -->
     <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
     <script>
@@ -33,28 +33,20 @@
             // 替换指令在HTML中绑定的元素
             replace: true,
 
-            // 指令对象的transclude必须设置为true才可以在模版中使用ng-transclude
-            // ng-transclude作用：将View中的innerHTML转置为模板中的HTML
-            // transclude: true,
-
             // 指向一个HTML模板，该模板会填充/替换指令内容
-             templateUrl: 'breadcrumb-template.html',
-            // template: '<li ng-repeat="(key, value) in $data track by $index" ng-class="{active:$last}"><a href="{{value}}">{{key}}</a></li>',
-            //template: '<li ng-repeat=" item in data1 ">ss</li>',
+            templateUrl: 'breadcrumb-template.html',
 
             scope: {},
 
-            // 链接函数 DOM
-            // scope：即与指令元素相关联的当前作用域，可以用来注册监听器：scope.$watch()
-
-            // element：即当前指令对应的元素，使用它可以操作该元素及其子元素。例如<span my-directive></span>，这个span就是指令 my-directive所使用的元素。
-
-            // attrs：由当前元素的属性组成的对象。
             link: function(scope, element, attributes) {
-                // 字符串转为json 反序列化
-                // attributes.data这里指的是DOM中breadcrumb的属性：data
-              scope.data = JSON.parse(attributes.data);
-              // console.log(scope.data);
+            // 链接函数 
+            // scope：即与指令元素相关联的当前作用域，可以用来注册监听器：scope.$watch()
+            // element：即当前指令对应的元素，使用它可以操作该元素及其子元素。例如<span my-directive></span>，这个span就是指令 my-directive所使用的元素。
+            // attrs：由当前元素的属性组成的对象。
+            scope.data = JSON.parse(attributes.shuxing);
+            // 字符串转为json 反序列化
+            // attributes.data这里指的是DOM中breadcrumb的属性：data
+            console.log(scope.data);
             }
 
         };
